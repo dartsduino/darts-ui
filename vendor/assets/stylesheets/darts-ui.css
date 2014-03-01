@@ -1,0 +1,73 @@
+/* line 18, ../../src/app/styles/darts-ui.scss */
+
+.darts-base {
+  fill: black;
+  stroke: #888888;
+  stroke-width: 3;
+}
+
+/* line 25, ../../src/app/styles/darts-ui.scss */
+
+.darts-high-ring:nth-child(odd) {
+  stroke: #ee0000;
+}
+
+/* line 29, ../../src/app/styles/darts-ui.scss */
+
+.darts-high-ring:nth-child(even) {
+  stroke: #00bb00;
+}
+
+/* line 35, ../../src/app/styles/darts-ui.scss */
+
+.darts-single:nth-child(odd) {
+  stroke: black;
+}
+
+/* line 39, ../../src/app/styles/darts-ui.scss */
+
+.darts-single:nth-child(even) {
+  stroke: #ffffee;
+}
+
+/* line 44, ../../src/app/styles/darts-ui.scss */
+
+.darts-bull {
+  stroke: #888888;
+  stroke-width: 1;
+}
+
+/* line 49, ../../src/app/styles/darts-ui.scss */
+
+.darts-bull-outer {
+  fill: #ee0000;
+}
+
+/* line 53, ../../src/app/styles/darts-ui.scss */
+
+.darts-bull-inner {
+  fill: black;
+}
+
+/* line 57, ../../src/app/styles/darts-ui.scss */
+
+.darts-point {
+  font-family: Impact;
+  font-size: 40px;
+  text-anchor: middle;
+  fill: #eeeeee;
+}
+
+/* line 65, ../../src/app/styles/darts-ui.scss */
+
+.darts-cell.darts-focus {
+  stroke: #ffdd44 !important;
+  fill: #ffdd44 !important;
+}
+
+/* line 70, ../../src/app/styles/darts-ui.scss */
+
+.darts-cell.darts-selected {
+  stroke: #88ffff !important;
+  fill: #88ffff !important;
+}
