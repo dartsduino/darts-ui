@@ -2,7 +2,8 @@
   "name": "src",
   "private": true,
   "dependencies": {
-    "jquery": "~1.10.2"
+    "jquery": "~1.10.2",
+    "Snap.svg": "~0.2.0"
   },
   "devDependencies": {}
 }
