@@ -15,9 +15,9 @@ spec/reports
 test/tmp
 test/version_tmp
 tmp
-src/node_modules
+node_modules
 src/dist
-src/.tmp
-src/.sass-cache
+.tmp
+.sass-cache
 src/app/bower_components
 src/test/bower_components

@@ -21,8 +21,8 @@ module.exports = function (grunt) {
         // Project settings
         yeoman: {
             // Configurable paths
-            app: 'app',
-            dist: 'dist'
+            app: 'src/app',
+            dist: 'src/dist'
         },
 
         // Watches files for changes and runs tasks based on the changed files
@@ -315,6 +315,26 @@ module.exports = function (grunt) {
                 cwd: '<%= yeoman.app %>/styles',
                 dest: '.tmp/styles/',
                 src: '{,*/}*.css'
+            },
+            deploy: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '.tmp/concat/scripts',
+                    dest: 'vendor/assets/javascripts',
+                    src: [
+                        'darts-ui.js',
+                        'snap.svg.js'
+                    ]
+                }, {
+                    expand: true,
+                    dot: true,
+                    cwd: '.tmp/concat/styles',
+                    dest: 'vendor/assets/stylesheets',
+                    src: [
+                        'darts-ui.css'
+                    ]
+                }]
             }
         },
 
@@ -384,7 +404,8 @@ module.exports = function (grunt) {
         'copy:dist',
         // 'rev',
         'usemin',
-        'htmlmin'
+        'htmlmin',
+        'copy:deploy'
     ]);
 
     grunt.registerTask('default', [
