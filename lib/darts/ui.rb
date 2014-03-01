@@ -2,6 +2,7 @@ require "darts/ui/version"
 
 module Darts
   module Ui
-    # Your code goes here...
+    class Engine < ::Rails::Engine
+    end
   end
 end
