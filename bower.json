@@ -1,8 +1,27 @@
 {
   "name": "darts-ui",
+  "version": "0.0.1",
+  "main": "src/app/scripts/darts-ui.js",
+  "ignore": [
+    ".bowerrc",
+    ".editorconfig",
+    ".gitignore",
+    ".jshintrc",
+    ".rspec",
+    ".travis.json",
+    "darts-ui.gemspec",
+    "Gemfile",
+    "Gemfile.lock",
+    "Gruntfile.js",
+    "package.json",
+    "Rakefile",
+    "src/images",
+    "src/app/scripts/main.js",
+    "src/main.scss",
+    "src/test/**"
+  ],
   "private": true,
   "dependencies": {
-    "jquery": "~1.10.2",
     "Snap.svg": "~0.2.0"
   },
   "devDependencies": {}
