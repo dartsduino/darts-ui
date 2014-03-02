@@ -15,10 +15,15 @@
     "Gruntfile.js",
     "package.json",
     "Rakefile",
+    "lib/**",
+    "node_modules/**",
+    "spec/**",
     "src/images",
     "src/app/scripts/main.js",
-    "src/main.scss",
-    "src/test/**"
+    "src/app/styles/main.scss",
+    "src/dist/**",
+    "src/test/**",
+    "vendor/**"
   ],
   "private": true,
   "dependencies": {
