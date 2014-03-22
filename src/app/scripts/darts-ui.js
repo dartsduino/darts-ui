@@ -77,6 +77,10 @@ var DartsUi = function (element) {
   this.cells = {};
   this.draw();
 
+  this.listener = null;
+
+  this.debugMode = false;
+
   this.dartsAddon = new DartsAddon();
 };
 
@@ -107,12 +111,17 @@ DartsUi.prototype.draw = function() {
   var that = this;
   this.dartsUi.click(function (event) {
     var id = event.target.id;
-    if (that.checkClass(that.cells[id].attr(), that.selectedClass)) {
-      that.removeClass(that.cells[id].attr(), that.selectedClass);
-      that.selectedCell = null;
+
+    if (!that.debugMode) {
+      if (that.checkClass(that.cells[id].attr(), that.selectedClass)) {
+        that.removeClass(that.cells[id].attr(), that.selectedClass);
+        that.selectedCell = null;
+      } else {
+        that.addClass(that.cells[id].attr(), that.selectedClass);
+        that.selectedCell = id;
+      }
     } else {
-      that.addClass(that.cells[id].attr(), that.selectedClass);
-      that.selectedCell = id;
+      that.hit(id);
     }
   });
 };
@@ -256,6 +265,8 @@ DartsUi.prototype.showCalibrationData = function() {
 };
 
 DartsUi.prototype.onHit = function(listener) {
+  this.listener = listener;
+
   if (!listener || !this.dartsAddon) {
     return;
   }
@@ -263,14 +274,24 @@ DartsUi.prototype.onHit = function(listener) {
   var that = this;
   this.dartsAddon.setListener(function (data) {
     var cellId = that.cellsMap[data];
+    that.hit(cellId);
+  });
+};
+
+DartsUi.prototype.hit = function(cellId) {
+  this.blur();
+  this.focus(cellId);
+
+  if (this.listener) {
     var cellIdItems = cellId.split('-');
     var point = Number(cellIdItems[0]);
     var ratio = Number(cellIdItems[1]);
-    listener(cellId, point, ratio);
+    this.listener(cellId, point, ratio);
+  }
+};
 
-    that.blur();
-    that.focus(cellId);
-  });
+DartsUi.prototype.setDebugMode = function(mode) {
+  this.debugMode = mode;
 };
 
 var DartsAddon = function () {
