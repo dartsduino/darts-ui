@@ -2,8 +2,10 @@
 
 'use strict';
 
+var dartsUi = null;
+
 function main () {
-  var dartsUi = new DartsUi('#darts-ui');
+  dartsUi = new DartsUi('#darts-ui');
 
   // dartsUi.focus(13, '1-o');
   // dartsUi.blur(13, '1-o');
@@ -18,4 +20,15 @@ function main () {
   dartsUi.onHit(function (cellId, point, ratio) {
     console.log(cellId + ' : ' + point + ' x ' + ratio + ' = ' + point * ratio);
   });
+}
+
+function play (index) {
+  var ids = [
+    'up',
+    'down'
+  ];
+
+  // console.log(dartsUi);
+
+  dartsUi.play(ids[index]);
 }

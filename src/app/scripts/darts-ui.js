@@ -288,7 +288,7 @@ DartsUi.prototype.hit = function(cellId) {
   var point = Number(cellIdItems[0]);
   var ratio = Number(cellIdItems[1]);
 
-  this.sound.play(point, ratio);
+  this.sound.playPoint(point, ratio);
 
   if (this.listener) {
     this.listener(cellId, point, ratio);
@@ -297,6 +297,10 @@ DartsUi.prototype.hit = function(cellId) {
 
 DartsUi.prototype.setDebugMode = function(mode) {
   this.debugMode = mode;
+};
+
+DartsUi.prototype.play = function(id) {
+  this.sound.play(id);
 };
 
 var DartsAddon = function () {
@@ -349,12 +353,12 @@ var DartsSound = function () {
   this.audio = new Audio();
 };
 
-DartsSound.prototype.play = function(point, ratio) {
-  if (point === 25) {
-    this.audio.src = this.sounds['bull' + ratio];
-  } else {
-    this.audio.src = this.sounds[ratio];
-  }
-
+DartsSound.prototype.play = function(id) {
+  this.audio.src = this.sounds[id];
   this.audio.play();
+};
+
+DartsSound.prototype.playPoint = function(point, ratio) {
+  var id = (point === 25 ? 'bull' : '') + ratio;
+  this.play(id);
 };
