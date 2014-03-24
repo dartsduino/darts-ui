@@ -13,7 +13,7 @@ function main () {
 
   // dartsUi.calibrate();
 
-  // dartsUi.setDebugMode(true);
+  dartsUi.setDebugMode(true);
 
   dartsUi.onHit(function (cellId, point, ratio) {
     console.log(cellId + ' : ' + point + ' x ' + ratio + ' = ' + point * ratio);
