@@ -347,7 +347,13 @@ var DartsSound = function () {
     bull1: 'sounds/bull-out.ogg',
     bull2: 'sounds/bull-in.ogg',
     down: 'sounds/down.ogg',
-    up: 'sounds/up.ogg'
+    up: 'sounds/up.ogg',
+    round: 'sounds/round.ogg',
+    round2: 'sounds/round2.ogg',
+    highton: 'sounds/highton.ogg',
+    lowton: 'sounds/lowton.ogg',
+    click: 'sounds/click.ogg',
+    start: 'sounds/start.ogg'
   };
 
   this.audio = new Audio();

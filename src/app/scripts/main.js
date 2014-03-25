@@ -24,8 +24,14 @@ function main () {
 
 function play (index) {
   var ids = [
+    'start',
+    'click',
     'up',
-    'down'
+    'down',
+    'round',
+    'round2',
+    'lowton',
+    'highton'
   ];
 
   // console.log(dartsUi);
