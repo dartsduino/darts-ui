@@ -360,7 +360,12 @@ var DartsSound = function () {
 };
 
 DartsSound.prototype.play = function(id) {
-  this.audio.src = this.sounds[id];
+  var sound = this.sounds[id];
+  if (!sound) {
+    return;
+  }
+
+  this.audio.src = sound;
   this.audio.play();
 };
 
