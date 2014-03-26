@@ -82,6 +82,8 @@ var DartsUi = function (element) {
   this.debugMode = false;
 
   this.dartsAddon = new DartsAddon();
+
+  this.sound = new DartsSound();
 };
 
 DartsUi.prototype.draw = function() {
@@ -282,16 +284,23 @@ DartsUi.prototype.hit = function(cellId) {
   this.blur();
   this.focus(cellId);
 
+  var cellIdItems = cellId.split('-');
+  var point = Number(cellIdItems[0]);
+  var ratio = Number(cellIdItems[1]);
+
+  this.sound.playPoint(point, ratio);
+
   if (this.listener) {
-    var cellIdItems = cellId.split('-');
-    var point = Number(cellIdItems[0]);
-    var ratio = Number(cellIdItems[1]);
     this.listener(cellId, point, ratio);
   }
 };
 
 DartsUi.prototype.setDebugMode = function(mode) {
   this.debugMode = mode;
+};
+
+DartsUi.prototype.play = function(id) {
+  this.sound.play(id);
 };
 
 var DartsAddon = function () {
@@ -328,6 +337,41 @@ DartsAddon.start = function() {
 
 DartsAddon.prototype.setListener = function(listener) {
   DartsAddon.listener = listener;
+};
+
+var DartsSound = function () {
+  this.sounds = {
+    1: '/sounds/single.ogg',
+    2: '/sounds/double.ogg',
+    3: '/sounds/triple.ogg',
+    bull1: '/sounds/bull-out.ogg',
+    bull2: '/sounds/bull-in.ogg',
+    down: '/sounds/down.ogg',
+    up: '/sounds/up.ogg',
+    round: '/sounds/round.ogg',
+    round2: '/sounds/round2.ogg',
+    highton: '/sounds/highton.ogg',
+    lowton: '/sounds/lowton.ogg',
+    click: '/sounds/click.ogg',
+    start: '/sounds/start.ogg'
+  };
+
+  this.audio = new Audio();
+};
+
+DartsSound.prototype.play = function(id) {
+  var sound = this.sounds[id];
+  if (!sound) {
+    return;
+  }
+
+  this.audio.src = sound;
+  this.audio.play();
+};
+
+DartsSound.prototype.playPoint = function(point, ratio) {
+  var id = (point === 25 ? 'bull' : '') + ratio;
+  this.play(id);
 };
 
 // Snap.svg 0.2.0

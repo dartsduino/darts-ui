@@ -334,6 +334,14 @@ module.exports = function (grunt) {
                     src: [
                         'darts-ui.css'
                     ]
+                }, {
+                    expand: true,
+                    dot: true,
+                    cwd: 'src/app/sounds',
+                    dest: 'vendor/assets/sounds',
+                    src: [
+                        '*.*'
+                    ]
                 }]
             }
         },
