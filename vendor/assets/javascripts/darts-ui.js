@@ -341,19 +341,19 @@ DartsAddon.prototype.setListener = function(listener) {
 
 var DartsSound = function () {
   this.sounds = {
-    1: 'sounds/single.ogg',
-    2: 'sounds/double.ogg',
-    3: 'sounds/triple.ogg',
-    bull1: 'sounds/bull-out.ogg',
-    bull2: 'sounds/bull-in.ogg',
-    down: 'sounds/down.ogg',
-    up: 'sounds/up.ogg',
-    round: 'sounds/round.ogg',
-    round2: 'sounds/round2.ogg',
-    highton: 'sounds/highton.ogg',
-    lowton: 'sounds/lowton.ogg',
-    click: 'sounds/click.ogg',
-    start: 'sounds/start.ogg'
+    1: '/sounds/single.ogg',
+    2: '/sounds/double.ogg',
+    3: '/sounds/triple.ogg',
+    bull1: '/sounds/bull-out.ogg',
+    bull2: '/sounds/bull-in.ogg',
+    down: '/sounds/down.ogg',
+    up: '/sounds/up.ogg',
+    round: '/sounds/round.ogg',
+    round2: '/sounds/round2.ogg',
+    highton: '/sounds/highton.ogg',
+    lowton: '/sounds/lowton.ogg',
+    click: '/sounds/click.ogg',
+    start: '/sounds/start.ogg'
   };
 
   this.audio = new Audio();
