@@ -22,3 +22,4 @@ src/dist
 src/app/bower_components
 src/test/bower_components
 src/app/sounds
+vendor/assets/sounds
